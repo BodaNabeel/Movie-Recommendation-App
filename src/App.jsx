@@ -2,7 +2,9 @@ import React from 'react'
 
 function App() {
   return (
-    <div>App</div>
+    <div>
+      <input type="text" placeholder='enter movie name...'/>
+    </div>
   )
 }
 
