@@ -8,7 +8,8 @@ export default {
     extend: {},
     screens: {
       'sm': {'max': '640px'},
-      'md': {'max': '800px'}
+      'md': {'max': '800px'},
+      'lg': {"min":"801px"}
     }
   },
   plugins: [],
