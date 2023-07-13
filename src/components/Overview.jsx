@@ -14,7 +14,7 @@ function Overview({ query }) {
     }
   }, [query]);
 
-  //   console.log(data);
+  
 
   if (data === undefined) {
     return <h1>Loading.....</h1>;
@@ -32,7 +32,7 @@ function Overview({ query }) {
         <h1>{el.title}</h1>
       </div>
     ));
-  } else {
+  } else if(data?.result?.length === 0) {
     return "NO DATA FOUND :(";
   }
 }
