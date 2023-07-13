@@ -18,7 +18,7 @@ function Overview({ query, setId }) {
   }, [query]);
 
   if (data === undefined) {
-    return <h1>Loading.....</h1>;
+    return <h1 className="text-gray-400">Search through the huge library of movies...</h1>;
   } else if (data?.results?.length > 0) {
     const imageUrl = "https://image.tmdb.org/t/p/original";
     return data.results.map((el, index) => (
