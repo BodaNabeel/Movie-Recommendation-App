@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-
+import {useNavigate} from "react-router-dom"
 function Overview({ query, setId }) {
   const [data, setData] = useState();
-
+  const navigate = useNavigate()
   const getUniqueId = (index) => {
     setId(data.results[index].id);
+    navigate(`/${data.results[index].id}`)
+
   };
   useEffect(() => {
     if (query) {
