@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-function Overview({ query }) {
+function Overview({ query, setId }) {
   const [data, setData] = useState();
 
+  const getUniqueId = (index) => {
+    setId(data.results[index].id);
+  };
   useEffect(() => {
     if (query) {
       setData([]);
@@ -14,14 +17,16 @@ function Overview({ query }) {
     }
   }, [query]);
 
-  
-
   if (data === undefined) {
     return <h1>Loading.....</h1>;
   } else if (data?.results?.length > 0) {
     const imageUrl = "https://image.tmdb.org/t/p/original";
-    return data.results.map((el,index) => (
-      <div key={index} className="w-40 mx-5 my-2 cursor-pointer">
+    return data.results.map((el, index) => (
+      <div
+        onClick={() => getUniqueId(index)}
+        key={index}
+        className="w-40 mx-5 my-2 cursor-pointer"
+      >
         <div className="h-60 overflow-hidden rounded-md">
           <img
             src={imageUrl + el.poster_path}
@@ -32,7 +37,7 @@ function Overview({ query }) {
         <h1>{el.title}</h1>
       </div>
     ));
-  } else if(data?.result?.length === 0) {
+  } else if (data?.result?.length === 0) {
     return "NO DATA FOUND :(";
   }
 }
