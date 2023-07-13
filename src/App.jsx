@@ -8,7 +8,7 @@ function App() {
   return (
     <>
     <Search setQuery={setQuery} />
-    <Layout/>
+    <Layout query={query}/>
     </>
   )
 }
