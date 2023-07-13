@@ -1,11 +1,9 @@
-import React from 'react'
+import React, { useState } from "react";
+import Search from "./components/Search";
 
 function App() {
-  return (
-    <div>
-      <input type="text" placeholder='enter movie name...'/>
-    </div>
-  )
+  const [query, setQuery] = useState()
+  return (<Search setQuery={setQuery} />)
 }
 
-export default App
+export default App;
