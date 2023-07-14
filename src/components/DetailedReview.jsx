@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import Rating from "./Rating";
 
 function DetailedReview({ id }) {
-  console.log("mounted");
+  
   const [details, setDetails] = useState();
   const [credits, setCredits] = useState();
 
@@ -30,7 +31,7 @@ function DetailedReview({ id }) {
       .catch((err) => console.error(err));
   }, []);
 
-  console.log(id);
+ 
   if (details) {
     return (
       <div className="w-[80%] mx-auto">
@@ -74,6 +75,10 @@ function DetailedReview({ id }) {
                 );
               })}
             </div>
+          </div>
+          <div className="rating flex mt-10 items-center">
+            <p >Rating:</p>
+            <Rating id={id}/>
           </div>
         </div>
       </div>
