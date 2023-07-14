@@ -1,11 +1,15 @@
 import React, { useRef } from "react";
 import { BsSearch } from "react-icons/bs";
+import {useNavigate} from "react-router-dom"
 function Search({ setQuery }) {
+  const navigate = useNavigate()
   const getQuery = (event) => {
     if (event.key === "Enter") {
       setQuery(event.target.value);
       event.target.blur();
       event.target.value = "";
+      navigate("/")
+
     }
   };
   return (
